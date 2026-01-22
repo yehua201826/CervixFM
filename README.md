@@ -10,6 +10,10 @@ Cervical cancer remains one of the most significant threats to women's health gl
 - torch 2.4.0
 - torchvision 0.19.0
 - CUDA 12.4
+- scikit-learn 1.5.1
+- scipy 1.10.1
+- pillow 10.2.0
+- faiss-gpu 1.7.2
 
 ## Model weights
 
