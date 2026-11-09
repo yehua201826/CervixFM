@@ -4,17 +4,11 @@ Cervical cancer remains one of the most significant threats to women's health gl
 
 ![Fig_1](asset/Fig_1.png)
 
-## Pretraining
+### Pretraining
 
-CervixFM was pretrained from scratch on our cervical cytology dataset using the DINOv2 self-supervised learning framework, without using pretrained weights from the original DINOv2 models for model initialization.
+CervixFM was pretrained from scratch on our cervical cytology dataset using the DINOv2 self-supervised learning framework, with randomly initialized weights rather than pretrained DINOv2 weights. Both the teacher and student networks were based on the ViT-Large architecture. The pretraining process involved multi-scale cropping, teacher–student self-distillation, KoLeo regularization, and exponential moving average (EMA) updates of the teacher network.
 
-Both the teacher and student networks were based on the ViT-Large architecture. During pretraining, 128 × 128 tiles were randomly cropped from the original tiles and further processed using multi-scale cropping and data augmentation to generate global and local views. The teacher network received only global views, whereas the student network processed both local views and randomly masked global views.
-
-The student network was optimized through self-distillation by aligning its [CLS] token and patch token representations with those of the teacher network. In addition, KoLeo regularization was employed to encourage a uniform feature distribution and prevent representation collapse. The teacher network was updated using an exponential moving average (EMA) of the student network's weights.
-
-After pretraining, the teacher network was used as the CervixFM encoder for downstream tasks. Its [CLS] tokens were used for classification and retrieval, whereas its patch tokens were used for segmentation and detection.
-
-Detailed pretraining configurations and hyperparameters are provided in Supplementary Table 49 of our paper.
+Detailed descriptions of the pretraining procedure and hyperparameters are provided in the "Pretraining framework" subsection of the Methods section and Supplementary Table 49 of our paper, respectively.
 
 ## Requirements
 
