@@ -6,9 +6,13 @@ Cervical cancer remains one of the most significant threats to women's health gl
 
 ### Pretraining
 
-CervixFM was pretrained from scratch on our cervical cytology dataset using the DINOv2 self-supervised learning framework, with randomly initialized weights rather than pretrained DINOv2 weights. Both the teacher and student networks were based on the ViT-Large architecture. The pretraining process involved multi-scale cropping, teacher–student self-distillation, KoLeo regularization, and exponential moving average (EMA) updates of the teacher network.
+CervixFM was pretrained from scratch on our cervical cytology dataset using the DINOv2 self-supervised learning framework(https://github.com/facebookresearch/dinov2), with randomly initialized weights rather than pretrained DINOv2 weights. Both the teacher and student networks were based on the ViT-Large architecture. The pretraining process involved multi-scale cropping, teacher–student self-distillation, KoLeo regularization, and exponential moving average (EMA) updates of the teacher network.
 
 Detailed descriptions of the pretraining procedure and hyperparameters are provided in the "Pretraining framework" subsection of the Methods section and Supplementary Table 49 of our paper, respectively.
+
+### Code Attribution
+
+The model architecture code in the `model/` directory, such as `model/layer_scale.py`, was adopted from the official [DINOv2 implementation](https://github.com/facebookresearch/dinov2) developed by Meta AI. These components were not newly developed in this study.
 
 ## Requirements
 
